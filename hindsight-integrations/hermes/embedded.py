@@ -274,3 +274,18 @@ def _materialize_embedded_profile_env(config: dict[str, Any], *, llm_api_key: st
             profile_env.unlink()
         raise
     return profile_env
+
+
+def _profile_env_out_of_sync(config: dict[str, Any], *, llm_api_key: str | None = None) -> bool:
+    """Whether the profile env file disagrees with config on a key this build governs.
+
+    Only the keys ``_build_embedded_profile_env`` produces are compared: keys this build
+    does not own (added by hindsight-embed, or set by the operator) are not a mismatch.
+    The file is shared with hindsight-embed, which appends its own (``HINDSIGHT_API_PORT``
+    and friends) on every daemon start, so comparing the two mappings whole was
+    permanently unequal — every start rewrote the file and SIGTERM'd a healthy daemon,
+    in-flight retains included.
+    """
+    expected = _build_embedded_profile_env(config, llm_api_key=llm_api_key)
+    on_disk = _load_simple_env(_embedded_profile_env_path(config))
+    return any(on_disk.get(key) != value for key, value in expected.items())
