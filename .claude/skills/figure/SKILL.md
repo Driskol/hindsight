@@ -153,16 +153,19 @@ catch a later beat. `open out.svg` works too when a human is watching.
   and animates it immediately. (Dragging a file into a comment also works, but only a human can do
   that, and GitHub keeps a fresh upload private for several minutes.)
 - **README or repo docs** — commit it and link it with a relative path.
-- **Blog post** — `hindsight-docs/static/img/blog/`, referenced as `/img/blog/<name>.svg`.
+- **Blog post** — `hindsight-docs/static/img/blog/`, referenced as `/img/blog/<name>.svg`. An SVG under
+  `hindsight-docs/static/` is also read by the docs-skill generator: it pulls the spec out of the
+  image and writes the narration into the skill, so an agent reading the docs gets the content and
+  not a dead image link.
 - **The docs site's own pages** — don't use an SVG. Those pages embed the interactive React figure,
   which has tabs, pause, speed and hover. Add a `hindsight-interfig/figures/<name>.ts` instead and
   `<Flow {...figure.props} />` on the page (see `hindsight-interfig/README.md`).
 
 ## A worked example
 
-`how-it-works.svg` in this folder is the figure of this skill itself: five beats, cards, a data chip
-on each hop, a quiet edge. Read its spec with `npm run svg -- --spec .claude/skills/figure/how-it-works.svg`
-and use it as the starting point for a new figure.
+The spec in step 1 is a complete, working figure — copy it and edit. Any SVG you find carries its
+own spec too: `npm run svg -- --spec <file>.svg` prints it back, so an existing figure is the
+fastest starting point for a new one.
 
 ## What the SVG cannot do
 
