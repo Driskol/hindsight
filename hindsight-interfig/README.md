@@ -39,6 +39,21 @@ Figures wider than their container shrink to fit (down to half size, then scroll
 
 The docs site sets the `--fig-*` colors for its light and dark themes in `hindsight-docs/src/css/custom.css` (search for `interfig`).
 
+## One animated SVG (GitHub, PRs, blog posts)
+
+`npm run svg -- <figure|spec.json> [out.svg]` renders a figure as a single self-contained animated SVG:
+no scripts, no fonts to fetch, ~50–170 kB. GitHub renders it in a README, a PR or an issue — `<video>`
+only plays from GitHub's own asset host, and a GIF of the same figure is 5–10x bigger and blurry.
+
+```bash
+npm run svg -- what-hindsight-does            # a figure from figures/
+npm run svg -- ./my-figure.json out.svg       # a spec written as JSON, same shape as figures/
+```
+
+It reads the same spec and the same layout code as the React player, so the two cannot drift. What the
+SVG gives up: no hover, no tabs, no pause — every step plays in one loop — and a `MiniGraph` becomes
+its links as text. Use it for GitHub and posts; the docs site keeps the interactive figure.
+
 ## Clips for social
 
 `npm run export` records every figure, one clip per step, into `~/Downloads/interfig-clips` (outside the repo —
