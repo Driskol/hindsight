@@ -1,0 +1,192 @@
+{
+  "props": {
+    "speed": 2200,
+    "layout": {
+      "gap": 72,
+      "children": [
+        {
+          "id": "agent",
+          "label": "Coding agent",
+          "sub": "writes a spec, not code",
+          "lines": 6,
+          "width": 220
+        },
+        {
+          "id": "tool",
+          "label": "hindsight-interfig",
+          "direction": "column",
+          "gap": 26,
+          "children": [
+            {
+              "id": "cli",
+              "label": "figure-svg",
+              "sub": "plain node, no install",
+              "lines": 3,
+              "width": 190
+            },
+            {
+              "id": "model",
+              "label": "Figure model",
+              "sub": "shared with the React player",
+              "shape": "store",
+              "lines": 3,
+              "width": 190
+            }
+          ]
+        },
+        {
+          "id": "out",
+          "label": "One animated SVG",
+          "direction": "column",
+          "gap": 26,
+          "children": [
+            {
+              "id": "svg",
+              "label": "figure.svg",
+              "sub": "~15 kB, no scripts",
+              "shape": "store",
+              "lines": 4,
+              "width": 200
+            },
+            {
+              "id": "where",
+              "label": "Renders anywhere",
+              "sub": "markdown, light or dark",
+              "lines": 4,
+              "width": 200
+            }
+          ]
+        }
+      ]
+    },
+    "edges": [
+      {
+        "id": "spec",
+        "from": "agent",
+        "to": "cli",
+        "label": "spec.json"
+      },
+      {
+        "id": "read",
+        "from": "cli",
+        "to": "model",
+        "label": "reads"
+      },
+      {
+        "id": "render",
+        "from": "cli",
+        "to": "svg",
+        "label": "renders"
+      },
+      {
+        "id": "place",
+        "from": "svg",
+        "to": "where"
+      },
+      {
+        "id": "back",
+        "from": "agent",
+        "to": "cli",
+        "quiet": true
+      }
+    ],
+    "steps": [
+      {
+        "label": "/figure",
+        "flow": [
+          {
+            "edges": {
+              "edge": "spec",
+              "data": "layout \u00b7 edges \u00b7 steps"
+            },
+            "show": {
+              "agent": [
+                {
+                  "tag": "ask",
+                  "tone": "gray",
+                  "text": "\u201cdraw how the worker consolidates facts\u201d"
+                },
+                {
+                  "tag": "writes",
+                  "tone": "blue",
+                  "text": "a JSON spec: boxes, arrows, one story per step"
+                }
+              ]
+            },
+            "say": "The agent describes the picture as data. It never writes SVG, and never a figure component.",
+            "ms": 3200
+          },
+          {
+            "edges": "read",
+            "show": {
+              "model": [
+                {
+                  "text": "same boxes, edges and beats the docs figures use",
+                  "mark": "\u2713"
+                }
+              ],
+              "cli": [
+                {
+                  "text": "node figure-svg.mjs spec.json",
+                  "mono": true
+                }
+              ]
+            },
+            "say": "One command renders it: plain Node, no install, no browser, no build.",
+            "ms": 3000
+          },
+          {
+            "edges": {
+              "edge": "render",
+              "data": "boxes + arrows + packets"
+            },
+            "show": {
+              "svg": [
+                {
+                  "text": "self-contained",
+                  "meta": "CSS + SMIL"
+                },
+                {
+                  "text": "no scripts, no web fonts",
+                  "mark": "\u2713"
+                }
+              ]
+            },
+            "say": "Out comes one file that animates by itself \u2014 about 15 kB where a video was 2 MB.",
+            "ms": 3000
+          },
+          {
+            "edges": "place",
+            "show": {
+              "where": [
+                {
+                  "tag": "github",
+                  "tone": "green",
+                  "text": "README, PR and issue comments",
+                  "mark": "plays"
+                },
+                {
+                  "tag": "blog",
+                  "tone": "orange",
+                  "text": "posts and release notes",
+                  "mark": "plays"
+                }
+              ]
+            },
+            "say": "Commit it and link it: GitHub animates an SVG in markdown, with no upload and no click.",
+            "ms": 3200
+          },
+          {
+            "edges": {
+              "edge": "back",
+              "back": true,
+              "data": "wrong? edit, render again"
+            },
+            "say": "The spec is the source: change a line, re-render, and the figure follows.",
+            "ms": 2800
+          }
+        ]
+      }
+    ]
+  }
+}

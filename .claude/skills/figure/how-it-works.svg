@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="874" height="452" viewBox="0 0 874 452" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<style>
+svg { --accent:#0074d9; --fg:#1c1e21; --muted:#606770; --bg:#ffffff; --surface:#f5f7fa; --border:#d0d7de; --card-on:#eef5fd; }
+@media (prefers-color-scheme: dark) { svg { --accent:#3396e8; --fg:#e3e3e3; --muted:#9aa0a6; --bg:#1b1b1d; --surface:#242526; --border:#3a3b3c; --card-on:#1d2733; } }
+.label { fill: var(--fg); font-size: 14px; font-weight: 500; text-anchor: middle; }
+.sub { fill: var(--muted); font-size: 12px; text-anchor: middle; }
+.frame { fill: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .04em; }
+.edgelabel { fill: var(--muted); font-size: 11px; text-anchor: middle; font-family: ui-monospace, Menlo, monospace; }
+.row { fill: var(--fg); font-size: 11px; }
+.row.mono { font-size: 10.5px; font-family: ui-monospace, Menlo, monospace; }
+.muted { fill: var(--muted); }
+.tag { font-size: 9px; font-weight: 600; letter-spacing: .03em; text-anchor: middle; }
+.mark { fill: var(--accent); font-size: 11px; font-weight: 600; text-anchor: end; }
+.chip { fill: #fff; font-size: 11.5px; text-anchor: middle; }
+.steplabel { fill: var(--fg); font-size: 13px; font-weight: 600; text-anchor: middle; font-family: ui-monospace, Menlo, monospace; }
+.caption { fill: var(--muted); font-size: 13.5px; text-anchor: middle; }
+@keyframes a0 { 0%,17.3% { stroke: var(--accent) } 17.3%,33.5% { stroke: var(--accent) } 33.5%,49.7% { stroke: var(--accent) } 49.7%,67% { stroke: var(--accent) } 67%,100% { stroke: var(--accent) } }
+.a0 { animation: a0 14.8s infinite step-end; }
+@keyframes a1 { 0%,17.3% { stroke: var(--accent); fill: var(--card-on) } 17.3%,33.5% { stroke: var(--accent); fill: var(--card-on) } 33.5%,49.7% { stroke: var(--accent); fill: var(--card-on) } 49.7%,67% { stroke: var(--accent); fill: var(--card-on) } 67%,100% { stroke: var(--accent); fill: var(--card-on) } }
+.a1 { animation: a1 14.8s infinite step-end; }
+@keyframes a2 { 0%,17.3% { opacity: 1 } 17.3%,33.5% { opacity: 1 } 33.5%,49.7% { opacity: 1 } 49.7%,67% { opacity: 1 } 67%,100% { opacity: 1 } }
+.a2 { animation: a2 14.8s infinite step-end; }
+@keyframes a3 { 0%,17.3% { stroke: var(--border); fill: var(--surface) } 17.3%,33.5% { stroke: var(--accent); fill: var(--card-on) } 33.5%,49.7% { stroke: var(--accent); fill: var(--card-on) } 49.7%,67% { stroke: var(--accent); fill: var(--card-on) } 67%,100% { stroke: var(--accent); fill: var(--card-on) } }
+.a3 { animation: a3 14.8s infinite step-end; }
+@keyframes a4 { 0%,17.3% { opacity: 0 } 17.3%,33.5% { opacity: 1 } 33.5%,49.7% { opacity: 1 } 49.7%,67% { opacity: 1 } 67%,100% { opacity: 1 } }
+.a4 { animation: a4 14.8s infinite step-end; }
+@keyframes a5 { 0%,17.3% { opacity: 1 } 17.3%,33.5% { opacity: 0 } 33.5%,49.7% { opacity: 0 } 49.7%,67% { opacity: 0 } 67%,100% { opacity: 0 } }
+.a5 { animation: a5 14.8s infinite step-end; }
+@keyframes a6 { 0%,17.3% { stroke: var(--border) } 17.3%,33.5% { stroke: var(--accent) } 33.5%,49.7% { stroke: var(--accent) } 49.7%,67% { stroke: var(--accent) } 67%,100% { stroke: var(--accent) } }
+.a6 { animation: a6 14.8s infinite step-end; }
+@keyframes a7 { 0%,17.3% { stroke: var(--border) } 17.3%,33.5% { stroke: var(--border) } 33.5%,49.7% { stroke: var(--accent) } 49.7%,67% { stroke: var(--accent) } 67%,100% { stroke: var(--accent) } }
+.a7 { animation: a7 14.8s infinite step-end; }
+@keyframes a8 { 0%,17.3% { stroke: var(--border); fill: var(--surface) } 17.3%,33.5% { stroke: var(--border); fill: var(--surface) } 33.5%,49.7% { stroke: var(--accent); fill: var(--card-on) } 49.7%,67% { stroke: var(--accent); fill: var(--card-on) } 67%,100% { stroke: var(--accent); fill: var(--card-on) } }
+.a8 { animation: a8 14.8s infinite step-end; }
+@keyframes a9 { 0%,17.3% { opacity: 0 } 17.3%,33.5% { opacity: 0 } 33.5%,49.7% { opacity: 1 } 49.7%,67% { opacity: 1 } 67%,100% { opacity: 1 } }
+.a9 { animation: a9 14.8s infinite step-end; }
+@keyframes a10 { 0%,17.3% { opacity: 1 } 17.3%,33.5% { opacity: 1 } 33.5%,49.7% { opacity: 0 } 49.7%,67% { opacity: 0 } 67%,100% { opacity: 0 } }
+.a10 { animation: a10 14.8s infinite step-end; }
+@keyframes a11 { 0%,17.3% { stroke: var(--border) } 17.3%,33.5% { stroke: var(--border) } 33.5%,49.7% { stroke: var(--border) } 49.7%,67% { stroke: var(--accent) } 67%,100% { stroke: var(--accent) } }
+.a11 { animation: a11 14.8s infinite step-end; }
+@keyframes a12 { 0%,17.3% { stroke: var(--border); fill: var(--surface) } 17.3%,33.5% { stroke: var(--border); fill: var(--surface) } 33.5%,49.7% { stroke: var(--border); fill: var(--surface) } 49.7%,67% { stroke: var(--accent); fill: var(--card-on) } 67%,100% { stroke: var(--accent); fill: var(--card-on) } }
+.a12 { animation: a12 14.8s infinite step-end; }
+@keyframes a13 { 0%,17.3% { opacity: 0 } 17.3%,33.5% { opacity: 0 } 33.5%,49.7% { opacity: 0 } 49.7%,67% { opacity: 1 } 67%,100% { opacity: 1 } }
+.a13 { animation: a13 14.8s infinite step-end; }
+@keyframes a14 { 0%,17.3% { opacity: 1 } 17.3%,33.5% { opacity: 1 } 33.5%,49.7% { opacity: 1 } 49.7%,67% { opacity: 0 } 67%,100% { opacity: 0 } }
+.a14 { animation: a14 14.8s infinite step-end; }
+@keyframes a15 { 0%,17.3% { stroke: var(--accent); stroke-width: 2 } 17.3%,33.5% { stroke: var(--accent); stroke-width: 2 } 33.5%,49.7% { stroke: var(--accent); stroke-width: 2 } 49.7%,67% { stroke: var(--accent); stroke-width: 2 } 67%,100% { stroke: var(--accent); stroke-width: 2 } }
+.a15 { animation: a15 14.8s infinite step-end; }
+@keyframes a16 { 0%,17.3% { fill: var(--accent); stroke: var(--accent) } 17.3%,33.5% { fill: var(--accent); stroke: var(--accent) } 33.5%,49.7% { fill: var(--accent); stroke: var(--accent) } 49.7%,67% { fill: var(--accent); stroke: var(--accent) } 67%,100% { fill: var(--accent); stroke: var(--accent) } }
+.a16 { animation: a16 14.8s infinite step-end; }
+@keyframes a17 { 0%,17.3% { fill: #fff } 17.3%,33.5% { fill: #fff } 33.5%,49.7% { fill: #fff } 49.7%,67% { fill: #fff } 67%,100% { fill: #fff } }
+.a17 { animation: a17 14.8s infinite step-end; }
+@keyframes a18 { 0%,17.3% { stroke: var(--muted); stroke-width: 1.25 } 17.3%,33.5% { stroke: var(--accent); stroke-width: 2 } 33.5%,49.7% { stroke: var(--accent); stroke-width: 2 } 49.7%,67% { stroke: var(--accent); stroke-width: 2 } 67%,100% { stroke: var(--accent); stroke-width: 2 } }
+.a18 { animation: a18 14.8s infinite step-end; }
+@keyframes a19 { 0%,17.3% { fill: var(--bg); stroke: var(--border) } 17.3%,33.5% { fill: var(--accent); stroke: var(--accent) } 33.5%,49.7% { fill: var(--accent); stroke: var(--accent) } 49.7%,67% { fill: var(--accent); stroke: var(--accent) } 67%,100% { fill: var(--accent); stroke: var(--accent) } }
+.a19 { animation: a19 14.8s infinite step-end; }
+@keyframes a20 { 0%,17.3% { fill: var(--muted) } 17.3%,33.5% { fill: #fff } 33.5%,49.7% { fill: #fff } 49.7%,67% { fill: #fff } 67%,100% { fill: #fff } }
+.a20 { animation: a20 14.8s infinite step-end; }
+@keyframes a21 { 0%,17.3% { stroke: var(--muted); stroke-width: 1.25 } 17.3%,33.5% { stroke: var(--muted); stroke-width: 1.25 } 33.5%,49.7% { stroke: var(--accent); stroke-width: 2 } 49.7%,67% { stroke: var(--accent); stroke-width: 2 } 67%,100% { stroke: var(--accent); stroke-width: 2 } }
+.a21 { animation: a21 14.8s infinite step-end; }
+@keyframes a22 { 0%,17.3% { fill: var(--bg); stroke: var(--border) } 17.3%,33.5% { fill: var(--bg); stroke: var(--border) } 33.5%,49.7% { fill: var(--accent); stroke: var(--accent) } 49.7%,67% { fill: var(--accent); stroke: var(--accent) } 67%,100% { fill: var(--accent); stroke: var(--accent) } }
+.a22 { animation: a22 14.8s infinite step-end; }
+@keyframes a23 { 0%,17.3% { fill: var(--muted) } 17.3%,33.5% { fill: var(--muted) } 33.5%,49.7% { fill: #fff } 49.7%,67% { fill: #fff } 67%,100% { fill: #fff } }
+.a23 { animation: a23 14.8s infinite step-end; }
+@keyframes a24 { 0%,17.3% { stroke: var(--muted); stroke-width: 1.25 } 17.3%,33.5% { stroke: var(--muted); stroke-width: 1.25 } 33.5%,49.7% { stroke: var(--muted); stroke-width: 1.25 } 49.7%,67% { stroke: var(--accent); stroke-width: 2 } 67%,100% { stroke: var(--accent); stroke-width: 2 } }
+.a24 { animation: a24 14.8s infinite step-end; }
+@keyframes a25 { 0%,17.3% { opacity: 0 } 17.3%,33.5% { opacity: 0 } 33.5%,49.7% { opacity: 0 } 49.7%,67% { opacity: 0 } 67%,100% { opacity: 1 } }
+.a25 { animation: a25 14.8s infinite step-end; }
+@keyframes a26 { 0%,17.3% { stroke: var(--muted); stroke-width: 1.25 } 17.3%,33.5% { stroke: var(--muted); stroke-width: 1.25 } 33.5%,49.7% { stroke: var(--muted); stroke-width: 1.25 } 49.7%,67% { stroke: var(--muted); stroke-width: 1.25 } 67%,100% { stroke: var(--accent); stroke-width: 2 } }
+.a26 { animation: a26 14.8s infinite step-end; }
+@keyframes p0 { 0%,0% { opacity: 0 } 0%,17.3% { opacity: 1 } 17.3%,100% { opacity: 0 } }
+.p0 { animation: p0 14.8s infinite step-end; }
+@keyframes p1 { 0%,17.3% { opacity: 0 } 17.3%,33.5% { opacity: 1 } 33.5%,100% { opacity: 0 } }
+.p1 { animation: p1 14.8s infinite step-end; }
+@keyframes p2 { 0%,33.5% { opacity: 0 } 33.5%,49.7% { opacity: 1 } 49.7%,100% { opacity: 0 } }
+.p2 { animation: p2 14.8s infinite step-end; }
+@keyframes p3 { 0%,49.7% { opacity: 0 } 49.7%,67% { opacity: 1 } 67%,100% { opacity: 0 } }
+.p3 { animation: p3 14.8s infinite step-end; }
+@keyframes p4 { 0%,67% { opacity: 0 } 67%,82.2% { opacity: 1 } 82.2%,100% { opacity: 0 } }
+.p4 { animation: p4 14.8s infinite step-end; }
+@keyframes a27 { 0%,17.3% { opacity: 1 } 17.3%,33.5% { opacity: 1 } 33.5%,49.7% { opacity: 1 } 49.7%,67% { opacity: 1 } 67%,100% { opacity: 1 } }
+.a27 { animation: a27 14.8s infinite step-end; }
+@keyframes a28 { 0%,17.3% { opacity: 1 } 17.3%,33.5% { opacity: 0 } 33.5%,49.7% { opacity: 0 } 49.7%,67% { opacity: 0 } 67%,100% { opacity: 0 } }
+.a28 { animation: a28 14.8s infinite step-end; }
+@keyframes a29 { 0%,17.3% { opacity: 0 } 17.3%,33.5% { opacity: 1 } 33.5%,49.7% { opacity: 0 } 49.7%,67% { opacity: 0 } 67%,100% { opacity: 0 } }
+.a29 { animation: a29 14.8s infinite step-end; }
+@keyframes a30 { 0%,17.3% { opacity: 0 } 17.3%,33.5% { opacity: 0 } 33.5%,49.7% { opacity: 1 } 49.7%,67% { opacity: 0 } 67%,100% { opacity: 0 } }
+.a30 { animation: a30 14.8s infinite step-end; }
+@keyframes a31 { 0%,17.3% { opacity: 0 } 17.3%,33.5% { opacity: 0 } 33.5%,49.7% { opacity: 0 } 49.7%,67% { opacity: 1 } 67%,100% { opacity: 0 } }
+.a31 { animation: a31 14.8s infinite step-end; }
+@keyframes a32 { 0%,17.3% { opacity: 0 } 17.3%,33.5% { opacity: 0 } 33.5%,49.7% { opacity: 0 } 49.7%,67% { opacity: 0 } 67%,100% { opacity: 1 } }
+.a32 { animation: a32 14.8s infinite step-end; }
+</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="var(--muted)"/></marker></defs>
+<rect width="100%" height="100%" fill="var(--bg)"/>
+<g transform="translate(0 0)">
+<rect x="24" y="117.5" width="220" height="167" rx="10" fill="var(--bg)" stroke="var(--border)" class="a0"/><text x="134" y="140.5" class="label">Coding agent</text><text x="134" y="155.5" class="sub">writes a spec, not code</text><rect x="34" y="168.5" width="200" height="106" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-dasharray="3 3" class="a1"/><g opacity="0" class="a2"><rect x="42" y="175.5" width="22.3" height="14" rx="4" fill="#8b949e" fill-opacity="0.15"/><text x="53.2" y="186" class="tag" fill="#8b949e">ASK</text><text x="42" y="200.5" class="row">“draw how the worker</text><text x="42" y="215.5" class="row">consolidates facts”</text><rect x="42" y="224.5" width="36.6" height="14" rx="4" fill="#3b82f6" fill-opacity="0.15"/><text x="60.3" y="235" class="tag" fill="#3b82f6">WRITES</text><text x="42" y="249.5" class="row">a JSON spec: boxes, arrows, one</text><text x="42" y="264.5" class="row">story per step</text></g>
+<rect x="316" y="43" width="226" height="316" rx="14" fill="var(--surface)" stroke="var(--border)"/><text x="334" y="63" class="frame">HINDSIGHT-INTERFIG</text>
+<rect x="334" y="80" width="190" height="103" rx="10" fill="var(--bg)" stroke="var(--border)" class="a0"/><text x="429" y="103" class="label">figure-svg</text><text x="429" y="118" class="sub">plain node, no install</text><rect x="344" y="131" width="170" height="42" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-dasharray="3 3" class="a3"/><g opacity="0" class="a4"><text x="352" y="148" class="row mono">node figure-svg.mjs</text><text x="352" y="163" class="row mono">spec.json</text></g><text x="352" y="148" opacity="0" class="row muted a5">—</text>
+<path d="M334 221 a 95 12 0 0 1 190 0 v 108 a 95 12 0 0 1 -190 0 z" fill="var(--bg)" stroke="var(--border)" class="a6"/><path d="M334 221 a 95 12 0 0 0 190 0" fill="none" stroke="var(--border)" class="a6"/><text x="429" y="246" class="label">Figure model</text><text x="429" y="261" class="sub">shared with the React player</text><rect x="344" y="274" width="170" height="57" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-dasharray="3 3" class="a3"/><g opacity="0" class="a4"><text x="506" y="291" class="mark">✓</text><text x="352" y="291" class="row">same boxes, edges and</text><text x="352" y="306" class="row">beats the docs figures</text><text x="352" y="321" class="row">use</text></g><text x="352" y="291" opacity="0" class="row muted a5">—</text>
+<rect x="614" y="24" width="236" height="354" rx="14" fill="var(--surface)" stroke="var(--border)"/><text x="632" y="44" class="frame">ONE ANIMATED SVG</text>
+<path d="M632 73 a 100 12 0 0 1 200 0 v 97 a 100 12 0 0 1 -200 0 z" fill="var(--bg)" stroke="var(--border)" class="a7"/><path d="M632 73 a 100 12 0 0 0 200 0" fill="none" stroke="var(--border)" class="a7"/><text x="732" y="98" class="label">figure.svg</text><text x="732" y="113" class="sub">~15 kB, no scripts</text><rect x="642" y="126" width="180" height="46" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-dasharray="3 3" class="a8"/><g opacity="0" class="a9"><text x="650" y="143" class="row">self-contained · CSS + SMIL</text><text x="814" y="162" class="mark">✓</text><text x="650" y="162" class="row">no scripts, no web fonts</text></g><text x="650" y="143" opacity="0" class="row muted a10">—</text>
+<rect x="632" y="208" width="200" height="152" rx="10" fill="var(--bg)" stroke="var(--border)" class="a11"/><text x="732" y="231" class="label">Renders anywhere</text><text x="732" y="246" class="sub">markdown, light or dark</text><rect x="642" y="259" width="180" height="91" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-dasharray="3 3" class="a12"/><g opacity="0" class="a13"><rect x="650" y="266" width="36.6" height="14" rx="4" fill="#10b981" fill-opacity="0.15"/><text x="668.3" y="276.5" class="tag" fill="#10b981">GITHUB</text><text x="814" y="276" class="mark">plays</text><text x="650" y="291" class="row">README, PR and issue</text><text x="650" y="306" class="row">comments</text><rect x="650" y="315" width="27.1" height="14" rx="4" fill="#f59e0b" fill-opacity="0.15"/><text x="663.5" y="325.5" class="tag" fill="#f59e0b">BLOG</text><text x="814" y="325" class="mark">plays</text><text x="650" y="340" class="row">posts and release notes</text></g><text x="650" y="276" opacity="0" class="row muted a14">—</text>
+<path id="p-spec" d="M 244 173.16666666666666 C 289 173.16666666666666, 289 114.33333333333333, 334 114.33333333333333" fill="none" stroke="var(--muted)" stroke-width="1.25" marker-end="url(#arrow)" class="a15"/><rect x="255.8" y="134.8" width="66.5" height="18" rx="9" fill="var(--bg)" stroke="var(--border)" class="a16"/><text x="289" y="147.8" class="edgelabel a17">spec.json</text>
+<path id="p-read" d="M 429 183 C 429 196, 429 196, 429 209" fill="none" stroke="var(--muted)" stroke-width="1.25" marker-end="url(#arrow)" class="a18"/><rect x="407.4" y="187" width="43.2" height="18" rx="9" fill="var(--bg)" stroke="var(--border)" class="a19"/><text x="429" y="200" class="edgelabel a20">reads</text>
+<path id="p-render" d="M 524 131.5 C 578 131.5, 578 121.5, 632 121.5" fill="none" stroke="var(--muted)" stroke-width="1.25" marker-end="url(#arrow)" class="a21"/><rect x="550.6" y="117.5" width="54.8" height="18" rx="9" fill="var(--bg)" stroke="var(--border)" class="a22"/><text x="578" y="130.5" class="edgelabel a23">renders</text>
+<path id="p-place" d="M 732 182 C 732 195, 732 195, 732 208" fill="none" stroke="var(--muted)" stroke-width="1.25" marker-end="url(#arrow)" class="a24"/>
+<g opacity="0" class="a25"><path id="p-back" d="M 244 228.83333333333331 C 289 228.83333333333331, 289 148.66666666666666, 334 148.66666666666666" fill="none" stroke="var(--muted)" stroke-width="1.25" marker-end="url(#arrow)" class="a26"/></g>
+<g class="p0" opacity="0"><circle r="10" fill="var(--accent)" opacity="0.2"/><circle r="4.5" fill="var(--accent)"/><rect x="-76" y="-35" width="152.1" height="23" rx="8" fill="var(--accent)"/><text x="0" y="-20" class="chip">layout · edges · steps</text><animateMotion dur="14.8s" repeatCount="indefinite" keyTimes="0;0;0.2;1" keyPoints="0;0;1;1" calcMode="linear"><mpath href="#p-spec" xlink:href="#p-spec"/></animateMotion></g>
+<g class="p1" opacity="0"><circle r="10" fill="var(--accent)" opacity="0.2"/><circle r="4.5" fill="var(--accent)"/><animateMotion dur="14.8s" repeatCount="indefinite" keyTimes="0;0.2;0.3;1" keyPoints="0;0;1;1" calcMode="linear"><mpath href="#p-read" xlink:href="#p-read"/></animateMotion></g>
+<g class="p2" opacity="0"><circle r="10" fill="var(--accent)" opacity="0.2"/><circle r="4.5" fill="var(--accent)"/><rect x="-82.1" y="-35" width="164.3" height="23" rx="8" fill="var(--accent)"/><text x="0" y="-20" class="chip">boxes + arrows + packets</text><animateMotion dur="14.8s" repeatCount="indefinite" keyTimes="0;0.3;0.5;1" keyPoints="0;0;1;1" calcMode="linear"><mpath href="#p-render" xlink:href="#p-render"/></animateMotion></g>
+<g class="p3" opacity="0"><circle r="10" fill="var(--accent)" opacity="0.2"/><circle r="4.5" fill="var(--accent)"/><animateMotion dur="14.8s" repeatCount="indefinite" keyTimes="0;0.5;0.7;1" keyPoints="0;0;1;1" calcMode="linear"><mpath href="#p-place" xlink:href="#p-place"/></animateMotion></g>
+<g class="p4" opacity="0"><circle r="10" fill="var(--accent)" opacity="0.2"/><circle r="4.5" fill="var(--accent)"/><rect x="-85.2" y="-35" width="170.4" height="23" rx="8" fill="var(--accent)"/><text x="0" y="-20" class="chip">wrong? edit, render again</text><animateMotion dur="14.8s" repeatCount="indefinite" keyTimes="0;0.7;0.8;1" keyPoints="1;1;0;0" calcMode="linear"><mpath href="#p-back" xlink:href="#p-back"/></animateMotion></g>
+</g>
+<text x="437" y="418" opacity="0" class="steplabel a27">/figure</text>
+<g opacity="0" class="a28"><text x="437" y="444" class="caption">The agent describes the picture as data. It never writes SVG, and never a figure component.</text></g>
+<g opacity="0" class="a29"><text x="437" y="444" class="caption">One command renders it: plain Node, no install, no browser, no build.</text></g>
+<g opacity="0" class="a30"><text x="437" y="444" class="caption">Out comes one file that animates by itself — about 15 kB where a video was 2 MB.</text></g>
+<g opacity="0" class="a31"><text x="437" y="444" class="caption">Commit it and link it: GitHub animates an SVG in markdown, with no upload and no click.</text></g>
+<g opacity="0" class="a32"><text x="437" y="444" class="caption">The spec is the source: change a line, re-render, and the figure follows.</text></g>
+</svg>

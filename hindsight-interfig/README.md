@@ -54,6 +54,9 @@ It reads the same spec and the same layout code as the React player, so the two 
 SVG gives up: no hover, no tabs, no pause — every step plays in one loop — and a `MiniGraph` becomes
 its links as text. Use it for GitHub and posts; the docs site keeps the interactive figure.
 
+The `/figure` skill (`.claude/skills/figure/`) wraps this for agents: write a JSON spec, run the
+command, drop the SVG into a PR, an issue or a blog post.
+
 ## Clips for social
 
 `npm run export` records every figure, one clip per step, into `~/Downloads/interfig-clips` (outside the repo —
