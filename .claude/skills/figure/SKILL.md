@@ -15,8 +15,9 @@ interactive figures, see below). One command renders it. No install, no build, n
 
 ## 1. Write the spec
 
-A spec is `{ "props": { "layout": …, "edges": […], "steps": […] } }`. Save it anywhere (a scratch
-path is fine — it is an input, not a deliverable).
+A spec is `{ "props": { "layout": …, "edges": […], "steps": […] } }`. **Do not save it as a file in
+the repo.** It is an input, not a deliverable, and a stray `spec.json` is the one mess this skill
+must not leave behind — pipe it in (step 2), and the rendered SVG keeps a copy of it for you.
 
 ```json
 {
@@ -27,11 +28,17 @@ path is fine — it is an input, not a deliverable).
       "children": [
         { "id": "agent", "label": "Your AI Agent" },
         {
-          "id": "api", "label": "Hindsight API", "direction": "column", "gap": 24,
+          "id": "api",
+          "label": "Hindsight API",
+          "direction": "column",
+          "gap": 24,
           "children": [{ "id": "retain", "label": "Retain", "sub": "LLM extraction" }]
         },
         {
-          "id": "bank", "label": "Memory Bank", "direction": "column", "gap": 28,
+          "id": "bank",
+          "label": "Memory Bank",
+          "direction": "column",
+          "gap": 28,
           "children": [
             { "id": "facts", "label": "Facts", "sub": "world · experience", "shape": "store" },
             { "id": "obs", "label": "Observations", "shape": "store" }
@@ -48,14 +55,31 @@ path is fine — it is an input, not a deliverable).
       {
         "label": "retain()",
         "flow": [
-          { "edges": { "edge": "call", "data": "“Alice joined Google in March”" },
-            "say": "Your agent sends what happened." },
-          { "edges": "store",
-            "show": { "facts": [{ "tag": "world", "tone": "blue", "text": "Alice joined Google", "meta": "Mar 2026", "mark": "new" }] },
-            "say": "An LLM pulls out the facts." },
-          { "edges": "consolidate", "ms": 2600,
+          {
+            "edges": { "edge": "call", "data": "“Alice joined Google in March”" },
+            "say": "Your agent sends what happened."
+          },
+          {
+            "edges": "store",
+            "show": {
+              "facts": [
+                {
+                  "tag": "world",
+                  "tone": "blue",
+                  "text": "Alice joined Google",
+                  "meta": "Mar 2026",
+                  "mark": "new"
+                }
+              ]
+            },
+            "say": "An LLM pulls out the facts."
+          },
+          {
+            "edges": "consolidate",
+            "ms": 2600,
             "show": { "obs": [{ "text": "Alice works at Google", "meta": "2 sources" }] },
-            "say": "The worker merges them into one belief." }
+            "say": "The worker merges them into one belief."
+          }
         ]
       }
     ]
@@ -66,9 +90,9 @@ path is fine — it is an input, not a deliverable).
 **Layout** — a tree. A group has `children`, and `label` (which draws a frame around it),
 `direction: "row" | "column"`, `gap`, `align`. Anything else is a box: `{ id, label, sub?, shape? }`,
 where `shape` is `"store"` for a database cylinder (data at rest) or `"decision"` for a diamond.
-Plain boxes are the things that *do* something. Give every box a stable `id`.
+Plain boxes are the things that _do_ something. Give every box a stable `id`.
 
-**Edges** — `{ from, to, label?, id?, around?, quiet? }`; `from`/`to` name a box *or a group*.
+**Edges** — `{ from, to, label?, id?, around?, quiet? }`; `from`/`to` name a box _or a group_.
 `around: "above" | "below"` arcs over the boxes in between; `quiet: true` draws the edge only while
 a step uses it (for long edges that would cut across the picture).
 
@@ -85,15 +109,30 @@ orange | gray`. Use `tag` for the kind of thing (`world`, `user`, `page`), `meta
 Keep it honest and specific: real example data beats placeholders, and every claim in a label,
 card or caption must match what the code actually does — check the code, don't assume.
 
-## 2. Render it
+## 2. Render it — from stdin, so nothing is left on disk
 
 ```bash
-node hindsight-interfig/scripts/figure-svg.mjs <spec.json> <out.svg>
-node hindsight-interfig/scripts/figure-svg.mjs what-hindsight-does out.svg   # an existing figure, by name
+cd hindsight-interfig
+npm run svg -- - ../path/to/out.svg <<'SPEC'
+{ "props": { "layout": …, "edges": […], "steps": […] } }
+SPEC
 ```
 
-Zero dependencies, no browser. `hindsight-interfig/figures/` holds the figures the docs site uses —
-render one by name to reuse it as-is.
+The quoted `<<'SPEC'` heredoc passes the JSON through untouched, and the only file produced is the
+SVG. Zero dependencies, no browser, no build.
+
+Other forms:
+
+```bash
+npm run svg -- what-hindsight-does out.svg   # a figure from figures/, by name
+npm run svg -- --spec out.svg                # print the spec an SVG carries, to edit and re-render
+```
+
+Every SVG embeds its own spec in `<metadata>`, so a figure stays editable without anyone keeping the
+JSON: read it back with `--spec`, change what you need, render again. That is why a spec file is
+never worth committing.
+
+Use `npm run svg`, not `node scripts/...` directly: the script name is the interface, the path is not.
 
 ## 3. Look at it before you ship it
 
@@ -121,8 +160,9 @@ catch a later beat. `open out.svg` works too when a human is watching.
 
 ## A worked example
 
-`example-spec.json` in this folder is the spec for `how-it-works.svg`, the figure of this skill
-itself — five beats, cards, a data chip on each hop, a quiet edge. Copy it and edit.
+`how-it-works.svg` in this folder is the figure of this skill itself: five beats, cards, a data chip
+on each hop, a quiet edge. Read its spec with `npm run svg -- --spec .claude/skills/figure/how-it-works.svg`
+and use it as the starting point for a new figure.
 
 ## What the SVG cannot do
 

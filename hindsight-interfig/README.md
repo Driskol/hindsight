@@ -47,7 +47,8 @@ only plays from GitHub's own asset host, and a GIF of the same figure is 5–10x
 
 ```bash
 npm run svg -- what-hindsight-does            # a figure from figures/
-npm run svg -- ./my-figure.json out.svg       # a spec written as JSON, same shape as figures/
+npm run svg -- - out.svg < my-figure.json     # a spec on stdin: nothing is left on disk
+npm run svg -- --spec out.svg                 # print the spec the SVG carries, to edit and re-render
 ```
 
 It reads the same spec and the same layout code as the React player, so the two cannot drift. What the
