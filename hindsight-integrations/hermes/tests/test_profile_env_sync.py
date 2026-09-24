@@ -14,6 +14,10 @@ CONFIG = {
     "llmApiKey": "test-key",
     "llm_base_url": "https://llm.example/v1",
 }
+# Same profile with no optional knob set, and with both of them set: ``llm_base_url`` and
+# ``idle_timeout`` are the two keys the build only emits when someone asks for them.
+BARE_CONFIG = {key: value for key, value in CONFIG.items() if key != "llm_base_url"}
+OPTIONAL_CONFIG = {**CONFIG, "idle_timeout": 900}
 
 
 def _materialize(config: dict | None = None):
@@ -60,5 +64,48 @@ def test_whitespace_and_comments_around_governed_keys_are_not_a_mismatch(hermes_
     path = _materialize()
     body = path.read_text(encoding="utf-8").replace("=", " = ", 1)
     path.write_text("# managed by hindsight-embed\n" + body, encoding="utf-8")
+
+    assert embedded._profile_env_out_of_sync(dict(CONFIG)) is False
+
+
+def test_a_cleared_optional_knob_is_a_mismatch(hermes_env):
+    """Dropping a knob from config must not leave its old value live in the file.
+
+    ``llm_base_url`` and ``idle_timeout`` only appear in the build while the knob is set,
+    so a check that walks the built mapping alone finds nothing to disagree with — and the
+    daemon keeps dialing the old base URL (or honouring the old idle timeout) from the file.
+    Those two keys are governed in both directions: absent from the build, absent from the file.
+    """
+    _materialize(OPTIONAL_CONFIG)
+
+    assert embedded._profile_env_out_of_sync(dict(CONFIG)) is True
+
+
+def test_a_cleared_base_url_is_a_mismatch(hermes_env):
+    """Same hole on the other optional key: the URL must not survive being unset."""
+    _materialize()
+
+    assert embedded._profile_env_out_of_sync(dict(BARE_CONFIG)) is True
+
+
+def test_every_optional_key_the_build_can_emit_is_governed(hermes_env):
+    """Guard: a new optional knob must join the governed set, or its removal escapes."""
+    with_knobs = embedded._build_embedded_profile_env(dict(OPTIONAL_CONFIG))
+    without_knobs = embedded._build_embedded_profile_env(dict(BARE_CONFIG))
+
+    assert set(with_knobs) - set(without_knobs) == set(embedded._OPTIONAL_PROFILE_ENV_KEYS)
+
+
+def test_a_cleared_knob_settles_after_one_rewrite(hermes_env):
+    """The mismatch is a one-shot, not an every-start rewrite.
+
+    The rewrite drops the key this build no longer governs, so the check is satisfied
+    afterwards: fixing the stale-key hole must not trade it for a rewrite-and-restart loop
+    on every provider init (which is the bug this PR set out to kill).
+    """
+    _materialize(OPTIONAL_CONFIG)
+    assert embedded._profile_env_out_of_sync(dict(CONFIG)) is True
+
+    _materialize(dict(CONFIG))  # what the daemon-start path does on a mismatch
 
     assert embedded._profile_env_out_of_sync(dict(CONFIG)) is False
